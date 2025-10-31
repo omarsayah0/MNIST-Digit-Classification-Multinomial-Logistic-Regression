@@ -24,9 +24,10 @@ mnist = fetch_openml('mnist_784', version=1)
 
 x = mnist.data
 
-y =mnist.target.astype(np.int8) 
+y =mnist.target.astype(np.int8)
 
-mask = (0) | (1) | (2)
+# Create a proper boolean mask by checking if the target is in the desired classes
+mask = y.isin([0, 1, 2])
 
 x_filtered = x[mask]
 
@@ -51,7 +52,7 @@ x_test_pca = pca.transform(x_test)
 
 parm_model = {'C' : np.logspace(-4 , 4 , 20) , 'penalty':['l2']}
 
-model = GridSearchCV(LogisticRegression(solver='lbfgs' , max_iter=2000) , parm_model , cv=3)
+model = GridSearchCV(LogisticRegression(solver='lbfgs' , max_iter=5000) , parm_model , cv=3)
 
 model.fit(x_train_pca , y_train)
 
@@ -71,8 +72,8 @@ disp.plot(cmap='Blues')
 
 
 plt.figure(figsize=(6,4))
- 
-y_test_binarized = label_binarize(y_test, classes=[0, 1, 2]) 
+
+y_test_binarized = label_binarize(y_test, classes=[0, 1, 2])
 
 for i in range(3):
 
@@ -92,9 +93,9 @@ plt.legend()
 
 
 
-report = classification_report(y_test, y_pred, output_dict=True)  
+report = classification_report(y_test, y_pred, output_dict=True)
 
-df_report = pd.DataFrame(report).transpose()  
+df_report = pd.DataFrame(report).transpose()
 
 plt.figure(figsize=(10, 5))
 
