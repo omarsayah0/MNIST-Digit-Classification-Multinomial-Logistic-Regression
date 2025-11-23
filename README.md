@@ -64,7 +64,7 @@ python multinomial-logistic-regression.py
      ConfusionMatrixDisplay(confusion_matrix=conf_matr, display_labels=model.classes_).plot(cmap='Blues')
   
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/a7eef9ac-9eab-4171-9499-8d571cb7fff6" alt="download" width="515" height="432">
+<img width="1150" height="964" alt="image" src="https://github.com/user-attachments/assets/537b8ca4-7083-477a-a390-c555dad49eac" />
 </p>
 
 - ROC Curves (One-vs-Rest) : Plots the ROC curves for each digit class
@@ -73,7 +73,7 @@ python multinomial-logistic-regression.py
     fpr, tpr, _ = roc_curve(y_test_binarized[:, i], model.predict_proba(x_test_pca)[:, i])
 
 <p align="center">
-  <img width="536" height="393" alt="download (1)" src="https://github.com/user-attachments/assets/b82f2cf4-cf0e-412d-89e5-b758cde519d0" />
+<img width="1193" height="870" alt="image" src="https://github.com/user-attachments/assets/47cf4efb-538c-45ab-aef4-93c2efbe6432" />
 </p>
 
 - Classification Report Heatmap : Shows precision, recall, and F1-score per class
@@ -82,7 +82,7 @@ python multinomial-logistic-regression.py
     sns.heatmap(df_report.iloc[:-1, :].T, annot=True, fmt=".2f", cmap="Blues")
 
 <p align="center">
-  <img width="786" height="470" alt="download (2)" src="https://github.com/user-attachments/assets/ef43a062-cbd6-44c2-ab23-ede936338dcc" />
+<img width="1758" height="1045" alt="image" src="https://github.com/user-attachments/assets/70cd1605-1257-41d3-9ce1-0c8c0bbcceac" />
 </p>
 
 
