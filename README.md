@@ -1,4 +1,4 @@
-# MNIST Digit Classification (Logistic Regression + PCA)
+# DigitLinear
 
 ## About
 In this repository, I implemented a **Multinomial Logistic Regression** model to classify digits **(0, 1, 2)** from the **MNIST dataset**.  
